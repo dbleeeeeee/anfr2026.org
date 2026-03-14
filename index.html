@@ -47,6 +47,8 @@ body {
   font-family:'Noto Sans KR', sans-serif;
   background:var(--ink); color:var(--cream);
   overflow-x:hidden; cursor:none;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 /* CURSOR */
@@ -239,6 +241,7 @@ nav.filled {
   font-size:38vw; font-family:'Noto Serif KR', serif; font-weight:900;
   color:rgba(255,255,255,.018); line-height:1; pointer-events:none;
 }
+.decl-inner { max-width:1100px; margin:0 auto; }
 .decl-header { display:flex; align-items:baseline; gap:2rem; margin-bottom:6rem; }
 .decl-label {
   font-size:.68rem; letter-spacing:.2em; text-transform:uppercase;
@@ -250,7 +253,7 @@ nav.filled {
 }
 .decl-title span { color:var(--lime); }
 
-.decl-items { max-width:920px; }
+.decl-items { max-width:100%; }
 .decl-item {
   display:grid; grid-template-columns:80px 1fr; gap:3rem;
   padding:2.8rem 0; border-bottom:1px solid rgba(255,255,255,.07);
@@ -295,16 +298,17 @@ nav.filled {
 
 /* VOICES — CATEGORY GRID */
 #voices { padding:10rem 3.5rem; background:var(--forest); }
+.voices-inner { max-width:1100px; margin:0 auto; }
 .voices-header {
-  display:flex; justify-content:space-between; align-items:flex-end;
-  margin-bottom:4rem; gap:2rem; flex-wrap:wrap;
+  display:flex; flex-direction:column; align-items:flex-start;
+  margin-bottom:2.5rem; gap:1rem;
 }
 .voices-title {
   font-family:'Noto Serif KR', serif;
   font-size:clamp(2rem,4.5vw,3.5rem); font-weight:900; color:var(--white); line-height:1.25;
 }
 .voices-title span { color:var(--lime); }
-.voices-desc { max-width:340px; color:var(--text-dim); font-size:.88rem; line-height:1.9; }
+.voices-desc { color:var(--text-dim); font-size:.88rem; line-height:1.9; }
 
 /* filter tabs */
 .cat-nav { display:flex; gap:.65rem; margin-bottom:3rem; flex-wrap:wrap; }
@@ -399,8 +403,8 @@ nav.filled {
 .why-big-label { font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--lime); margin-bottom:1.5rem; }
 .why-big-text {
   font-family:'Noto Serif KR', serif;
-  font-size:clamp(1.6rem,3.5vw,2.7rem); font-weight:700;
-  color:var(--white); line-height:1.55; max-width:700px; position:relative; z-index:1;
+  font-size:clamp(1.4rem,2.5vw,2.2rem); font-weight:700;
+  color:var(--white); line-height:1.7; max-width:820px; position:relative; z-index:1;
 }
 .why-big-text em { color:var(--lime); font-style:normal; }
 .why-card {
@@ -696,6 +700,7 @@ footer {
 
 <!-- DECLARATION -->
 <section id="declaration">
+  <div class="decl-inner">
   <div class="decl-header reveal">
     <span class="decl-label">Manifesto · 2026.03.01</span>
     <h2 class="decl-title">AI 시대,<br><span>'회고하는 인간'</span>을<br>위한 선언</h2>
@@ -736,6 +741,7 @@ footer {
         <p>오늘 한 사람이 남긴 평범한 일기는 내일의 누군가에게 시대를 증언하는 사료가 된다. 유명인의 연대기만이 역사가 아니라, 시장 상인의 하루, 학교를 청소하시는 선생님의 삶, 난민 아이의 이야기가 모여 비로소 온전한 시대의 초상이 완성된다.</p>
       </div>
     </div>
+  </div>
   </div>
 </section>
 
@@ -825,6 +831,7 @@ footer {
 
 <!-- VOICES -->
 <section id="voices">
+  <div class="voices-inner">
   <div class="voices-header">
     <h2 class="voices-title reveal">40인의<br><span>회고인들</span></h2>
     <p class="voices-desc reveal reveal-d1">카테고리를 선택해 각자의 자리에서 기록의 의미를 탐구하는 사람들의 이야기를 만나보세요.</p>
@@ -839,6 +846,7 @@ footer {
     <button class="cat-btn" data-cat="all">전체 40인 보기</button>
   </div>
   <div class="voices-grid" id="voicesGrid"></div>
+  </div>
 </section>
 
 <!-- WHY -->
